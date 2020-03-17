@@ -5,7 +5,6 @@ import { emailValidation, required } from '../validations/Validations';
 import { loginUser, defaultError, loading } from '../../Actions/Index';
 import { Button } from 'antd';
 import firebase from 'firebase';
-import History from '../History/History';
 import { firebaseConfig } from '../../FirebaseConfig';
 
 class Login extends Component {
@@ -15,7 +14,7 @@ class Login extends Component {
 	}
 
 	componentDidMount() {
-		var app = firebase.initializeApp({ firebaseConfig });
+		firebase.initializeApp(firebaseConfig);
 	}
 
 	renderError({ error, touched }) {
@@ -53,8 +52,12 @@ class Login extends Component {
 	onSubmit(formValues) {
 		this.props.loading();
 		this.props.loginUser(formValues.email, formValues.passwordSing);
-		alert('hiciste submit');
 	}
+
+	onClose = e => {
+		console.log(e, 'I was closed.');
+	};
+
 	render() {
 		return (
 			<>

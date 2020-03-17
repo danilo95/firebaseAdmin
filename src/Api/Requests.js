@@ -6,20 +6,20 @@ export const login = (userEmail, userPassword) => {
 		.auth()
 		.signInWithEmailAndPassword(userEmail, userPassword)
 		.then(credential => {
-			console.log('entre');
-			return credential;
+			console.log(credential);
+			return credential.user.uid;
 		})
 		.catch(error => {
-			console.log('error');
 			return handleError(error);
 		});
+	return result;
 };
 
 const handleError = errorHttp => {
-	switch (errorHttp.response.status) {
+	switch (errorHttp.code) {
 		case 400:
-			return { status: 400, message: errorHttp.response.data.error };
+			return { status: 400, message: errorHttp.message };
 		default:
-			return { status: 500, message: errorHttp.response.data.error };
+			return { status: 500, message: errorHttp.message };
 	}
 };

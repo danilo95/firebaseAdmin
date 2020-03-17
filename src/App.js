@@ -3,6 +3,7 @@ import { Router, Route } from 'react-router-dom';
 import History from './Components/History/History';
 import Index from './Components/Index/Index';
 import Login from './Components/Login/Login';
+import 'antd/dist/antd.css';
 
 function App() {
 	return (

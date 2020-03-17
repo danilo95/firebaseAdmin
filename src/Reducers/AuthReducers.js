@@ -1,5 +1,5 @@
 const initialState = {
-	newUser: null,
+	userUid: null,
 	isLogin: false,
 	email: null,
 	loading: false,
@@ -7,22 +7,14 @@ const initialState = {
 };
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case 'NEW_USER':
-			return {
-				...state,
-				newUser: action.payload
-			};
 		case 'LOGIN':
+			console.log(action.payload);
 			return {
 				...state,
 				isLogin: true,
 				loading: false,
-				loginError: ' '
-			};
-		case 'GET_SESSION_EMAIL':
-			return {
-				...state,
-				email: action.payload
+				loginError: ' ',
+				userUid: action.payload
 			};
 		case 'LOGIN_ERRROR':
 			return {

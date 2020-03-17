@@ -1,12 +1,14 @@
 import { login } from '../Api/Requests';
 import History from '../Components/History/History';
+import { message } from 'antd';
 
 export const loginUser = (user, password) => async dispatch => {
 	const response = await login(user, password);
 	if (response.status) {
+		message.error(response.message);
 		dispatch({ type: 'LOGIN_ERRROR', payload: response });
 	} else {
-		dispatch({ type: 'LOGIN' });
+		dispatch({ type: 'LOGIN', payload: response });
 		History.push('/Homepage/Homepage');
 	}
 };
