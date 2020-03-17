@@ -96,7 +96,13 @@ class Login extends Component {
 									</div>
 
 									<div className="group">
-										<input type="submit" value="Log In" />
+										<Button
+											type="primary"
+											loading={this.props.loadingState}
+											htmlType="submit"
+										>
+											Log In
+										</Button>
 									</div>
 								</div>
 							</div>
@@ -117,9 +123,9 @@ const validate = ({ email, passwordSing }) => {
 
 const mapStateToProps = state => {
 	return {
-		loginError: state.newUser.loginError,
-		isLogin: state.newUser.isLogin,
-		loadingState: state.newUser.loading
+		loginError: state.login.loginError,
+		isLogin: state.login.isLogin,
+		loadingState: state.login.loading
 	};
 };
 export default connect(mapStateToProps, {
