@@ -4,7 +4,7 @@ import { validateAdmin, defaultError, loading } from '../../Actions/Index';
 
 class ValidateSesion extends Component {
 	componentDidMount() {
-		this.props.validateAdmin(this.props.uid);
+		this.props.validateAdmin(this.props.uid, this.props.AccesToken);
 	}
 	render() {
 		return <div>que no ven que estoy validando</div>;
@@ -13,7 +13,8 @@ class ValidateSesion extends Component {
 
 const mapStateToProps = state => {
 	return {
-		uid: state.login.userUid
+		uid: state.login.userUid,
+		AccesToken: state.login.token
 	};
 };
 export default connect(mapStateToProps, {

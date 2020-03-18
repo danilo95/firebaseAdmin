@@ -13,8 +13,8 @@ export const loginUser = (user, password) => async dispatch => {
 	}
 };
 
-export const validateAdmin = uid => async dispatch => {
-	const response = await getAdmin(uid);
+export const validateAdmin = (uid, token) => async dispatch => {
+	const response = await getAdmin(uid, token);
 	if (response.status) {
 		message.error(response.message);
 		dispatch({ type: 'LOGIN_ERRROR', payload: response });

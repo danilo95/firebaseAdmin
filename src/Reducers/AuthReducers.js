@@ -1,5 +1,6 @@
 const initialState = {
 	userUid: null,
+	token: null,
 	isLogin: false,
 	email: null,
 	loading: false,
@@ -10,13 +11,13 @@ const initialState = {
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case 'LOGIN':
-			console.log(action.payload);
 			return {
 				...state,
 				isLogin: true,
 				loading: false,
 				loginError: ' ',
-				userUid: action.payload
+				userUid: action.payload[0],
+				token: action.payload[1]
 			};
 		case 'LOGIN_ERRROR':
 			return {

@@ -6,8 +6,7 @@ export const login = (userEmail, userPassword) => {
 		.auth()
 		.signInWithEmailAndPassword(userEmail, userPassword)
 		.then(credential => {
-			console.log(credential);
-			return credential.user.uid;
+			return [credential.user.uid, credential.user.refreshToken];
 		})
 		.catch(error => {
 			return handleError(error);
@@ -15,9 +14,9 @@ export const login = (userEmail, userPassword) => {
 	return result;
 };
 
-export const getAdmin = uid => {
+export const getAdmin = (uid, token) => {
 	let result = baseUrl
-		.get(`/profile?uid=${uid}`, {
+		.get(`/profile?uid=${uid}&token=${token}`, {
 			headers: {
 				'Content-Type': 'application/json'
 			}
