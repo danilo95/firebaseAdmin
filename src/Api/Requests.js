@@ -15,6 +15,23 @@ export const login = (userEmail, userPassword) => {
 	return result;
 };
 
+export const getAdmin = uid => {
+	let result = baseUrl
+		.get(`/profile?uid=${uid}`, {
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+		.then(response => {
+			return response.data;
+		})
+		.catch(error => {
+			return handleError(error);
+		});
+
+	return result;
+};
+
 const handleError = errorHttp => {
 	switch (errorHttp.code) {
 		case 400:

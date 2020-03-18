@@ -4,17 +4,11 @@ import { Field, reduxForm } from 'redux-form';
 import { emailValidation, required } from '../validations/Validations';
 import { loginUser, defaultError, loading } from '../../Actions/Index';
 import { Button } from 'antd';
-import firebase from 'firebase';
-import { firebaseConfig } from '../../FirebaseConfig';
 
 class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.onSubmit = this.onSubmit.bind(this);
-	}
-
-	componentDidMount() {
-		firebase.initializeApp(firebaseConfig);
 	}
 
 	renderError({ error, touched }) {

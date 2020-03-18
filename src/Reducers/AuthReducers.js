@@ -3,7 +3,9 @@ const initialState = {
 	isLogin: false,
 	email: null,
 	loading: false,
-	loginError: ' '
+	loginError: ' ',
+	isAdmin: false,
+	user: {}
 };
 export default (state = initialState, action) => {
 	switch (action.type) {
@@ -31,6 +33,12 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				loading: action.payload
+			};
+		case 'IS_ADMIN':
+			return {
+				...state,
+				isAdmin: true,
+				user: action.payload
 			};
 		case 'RESET':
 			return initialState;
