@@ -4,7 +4,7 @@
 	"private": true,
 	"dependencies": {
 		"antd": "^3.26.9",
-		"axios": "^0.19.2",
+		"axios": "^0.21.1",
 		"faker": "^4.1.0",
 		"firebase": "^7.11.0",
 		"moment": "^2.24.0",
